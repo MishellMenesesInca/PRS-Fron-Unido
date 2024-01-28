@@ -18,11 +18,21 @@ import {NgOptimizedImage} from "@angular/common";
 import {HotToastModule} from '@ngneat/hot-toast';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { AdolescentFormComponent } from './programs/adolescent-form/adolescent-form.component';
+import { AdolescentListComponent } from './programs/adolescent-list/adolescent-list.component';
+import { ModalComponent } from './programs/modal/modal.component';
+import { TransDistComponent } from './programs/trans-dist/trans-dist.component';
+import { BulkComponent } from './programs/bulk/component/bulk/bulk.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FullComponent
+    FullComponent,
+    AdolescentFormComponent,
+    AdolescentListComponent,
+    ModalComponent,
+    TransDistComponent,
+    BulkComponent
   ],
   imports: [
     BrowserModule,

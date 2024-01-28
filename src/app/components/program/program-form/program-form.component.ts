@@ -23,7 +23,7 @@ export class ProgramFormComponent {
       beneficiary: ['', Validators.required],
       responsible: ['', Validators.required],
       description: ['', Validators.required],
-      duration: ['', Validators.required],  
+      duration: ['', Validators.required],
       status: ['A']
     });
     if (this._programService.funcionarySelected) {

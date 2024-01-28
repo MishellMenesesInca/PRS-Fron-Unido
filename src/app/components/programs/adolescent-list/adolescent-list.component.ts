@@ -3,7 +3,7 @@ import { AdolescentService } from 'src/app/components/component-funcionality/ser
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../modal/modal.component';  
+import { ModalComponent } from '../modal/modal.component';
 import { HotToastService } from '@ngneat/hot-toast';
 import { MatPaginator } from '@angular/material/paginator';
 
@@ -41,7 +41,7 @@ export class AdolescentListComponent implements OnInit {
       (data) => {
         this.adolescents = data;
         this.filteredAdolescents = data.slice();
-       
+
         this.onPageChange({ pageIndex: 1, pageSize: this.paginator.pageSize });
       },
       (error) => {
@@ -49,7 +49,7 @@ export class AdolescentListComponent implements OnInit {
       }
     );
   }
-  
+
   onPageChange(event: any): void {
     if (this.paginator) {
       const startIndex = event.pageIndex * event.pageSize;
@@ -96,18 +96,18 @@ export class AdolescentListComponent implements OnInit {
   navigateToAdolescentForm(): void {
     this.router.navigate(['/adolescent-form']);
   }
-  
+
 
   formatDate(dateString: string): string {
     const [day, month, year] = dateString.split('-');
     return `${year}-${month}-${day}`;
   }
-  
+
   saveEditedAdolescent(): void {
     // Formatea las fechas antes de enviarlas al backend
     this.editedAdolescent.startDate = this.formatDate(this.editedAdolescent.startDate);
     this.editedAdolescent.endDate = this.formatDate(this.editedAdolescent.endDate);
-  
+
     // Aplicar la validación antes de realizar la actualización
     if (this.validateAdolescentFields(this.editedAdolescent)) {
       this.adolescentService.updateAdolescent(this.editedAdolescent.id, this.editedAdolescent).subscribe(() => {
@@ -120,7 +120,7 @@ export class AdolescentListComponent implements OnInit {
       this.toastServices.success('Programa actualizado exitosamente');
     }
   }
-  
+
   validateAdolescentFields(adolescent: any): boolean {
     // Validar que los campos no contengan números
     if (
@@ -138,18 +138,18 @@ export class AdolescentListComponent implements OnInit {
     return true;
   }
 
-  
-  
-  
-  
+
+
+
+
 
   deleteAdolescent(id: number): void {
     const confirmDelete = confirm('¿Estás seguro de que deseas eliminar este adolescente?');
     if (confirmDelete) {
       this.adolescentService.deleteAdolescent(id).subscribe(() => {
         this.adolescentService.getAdolescentList().subscribe(data => {
-        this.adolescents = data;
-        this.toastServices.success('Programa eliminado exitosamente');
+          this.adolescents = data;
+          this.toastServices.success('Programa eliminado exitosamente');
         });
       });
     }
@@ -159,13 +159,13 @@ export class AdolescentListComponent implements OnInit {
   }
 
 
-  
+
   convertirFecha(fechaString: string): Date {
-    
+
     const [day, month, year] = fechaString.split('-').map(Number);
-    
+
     return new Date(year, month - 1, day); // El mes en JavaScript es 0-indexado
-    
+
   }
 
 
@@ -173,37 +173,37 @@ export class AdolescentListComponent implements OnInit {
     if (!fechaString) {
       return '';  // o manejarlo según tu lógica
     }
-  
+
     const [day, month, year] = fechaString.split('/').map(Number);
     return `${day}-${month}-${year}`;
   }
-  
 
-restoreAdolescent(id: number): void {
-  const confirmRestore = confirm('¿Estás seguro de que deseas restaurar este adolescente?');
-  if (confirmRestore) {
-    this.adolescentService.restoreAdolescent(id).subscribe(() => {
-      // Verificar si el adolescente ha sido restaurado correctamente
-      this.isAdolescentRestored(id);
-    });
-  } else {
-    this.toastServices.error('No se pudo restaurar el programa');
+
+  restoreAdolescent(id: number): void {
+    const confirmRestore = confirm('¿Estás seguro de que deseas restaurar este adolescente?');
+    if (confirmRestore) {
+      this.adolescentService.restoreAdolescent(id).subscribe(() => {
+        // Verificar si el adolescente ha sido restaurado correctamente
+        this.isAdolescentRestored(id);
+      });
+    } else {
+      this.toastServices.error('No se pudo restaurar el programa');
+    }
   }
-}
 
 // Función para verificar si un adolescente con el ID proporcionado ha sido restaurado
-isAdolescentRestored(id: number): void {
-  this.adolescentService.getAdolescentList().subscribe(restoredAdolescents => {
-    // Verificar si el ID está presente en la lista de adolescentes restaurados
-    const isRestored = restoredAdolescents.some(adolescent => adolescent.id === id);
-    if (isRestored) {
-      this.toastServices.success('Programa restaurado exitosamente');
-      this.loadAdolescents(); // Vuelve a cargar la lista después de restaurar
-    } else {
-      this.toastServices.error('No se pudo restaurar el programa. La fecha final no es mayor a la fecha actual.');
-    }
-  });
-}
+  isAdolescentRestored(id: number): void {
+    this.adolescentService.getAdolescentList().subscribe(restoredAdolescents => {
+      // Verificar si el ID está presente en la lista de adolescentes restaurados
+      const isRestored = restoredAdolescents.some(adolescent => adolescent.id === id);
+      if (isRestored) {
+        this.toastServices.success('Programa restaurado exitosamente');
+        this.loadAdolescents(); // Vuelve a cargar la lista después de restaurar
+      } else {
+        this.toastServices.error('No se pudo restaurar el programa. La fecha final no es mayor a la fecha actual.');
+      }
+    });
+  }
 
 
 
@@ -223,7 +223,7 @@ isAdolescentRestored(id: number): void {
 
   filterAdolescentsByName(): void {
     console.log('Filtrando por nombre:', this.nameFilter);
-  
+
     if (this.nameFilter) {
       this.filteredAdolescents = this.adolescents.filter(adolescent =>
         adolescent.name.toLowerCase().includes(this.nameFilter.toLowerCase())
@@ -236,7 +236,7 @@ isAdolescentRestored(id: number): void {
 
   filterAdolescentsByLevel(): void {
     console.log('Filtrando por nivel:', this.levelFilter);
-  
+
     if (this.levelFilter) {
       this.filteredAdolescents = this.adolescents.filter(adolescent =>
         adolescent.level.toLowerCase() === this.levelFilter.toLowerCase()
@@ -255,13 +255,13 @@ isAdolescentRestored(id: number): void {
         adolescents: this
       }
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('Modal closed with result:', result);
     });
   }
-  
-  
+
+
 
 
 

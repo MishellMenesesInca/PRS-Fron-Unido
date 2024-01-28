@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sheet } from 'src/app/components/programs/trans-dist/models/sheet.model';
 import { Observable } from 'rxjs/internal/Observable';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
+
 
 @Injectable({
   providedIn: 'root'

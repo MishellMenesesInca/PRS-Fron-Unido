@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProgramService } from './program.service';
 
-describe('OperativeUnitService', () => {
+describe('ProgramService', () => {
   let service: ProgramService;
 
   beforeEach(() => {

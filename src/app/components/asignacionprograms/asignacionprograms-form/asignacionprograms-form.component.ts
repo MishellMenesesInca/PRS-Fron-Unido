@@ -4,11 +4,10 @@ import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dial
 import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2';
 import { Actividad } from '../../component-funcionality/models/asignationprograms/Actividad';
-import { Programa } from '../../component-funcionality/models/asignationprograms/Programs';
 import { Transactional } from '../../component-funcionality/models/asignationprograms/transacional.modal';
 import { AsignacionprogramsService } from '../../component-funcionality/services/asignationprograms/asignacionprograms.service';
-import { DialogComponentComponent } from '../../confirm-dialog/dialog-component/dialog-component.component';
-import { PROGRAMAS } from '../../component-funcionality/models/asignationprograms/Programas';
+import {Programa, PROGRAMAS} from '../../component-funcionality/models/asignationprograms/Programas';
+import {DialogComponentComponent} from "../../confirm-dialog/dialog-component/dialog-component.component";
 
 @Component({
   selector: 'app-asignacionprograms-form',
@@ -18,7 +17,7 @@ import { PROGRAMAS } from '../../component-funcionality/models/asignationprogram
 
 export class AsignacionprogramsFormComponent implements OnInit, OnDestroy {
 
-  
+
   registroForm!: FormGroup;
   programas: Programa[] = PROGRAMAS;
   actividades: Actividad[] = [];
@@ -63,8 +62,8 @@ export class AsignacionprogramsFormComponent implements OnInit, OnDestroy {
     this.transaccionalService
       .listaactividaes()
       .subscribe((res: any) => {
-        this.actividades = res;
-      }
+          this.actividades = res;
+        }
       )
   }
 

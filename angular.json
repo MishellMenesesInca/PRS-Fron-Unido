@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Flexy-admin-angular-lite:build:production"
+              "browserTarget": "Flexy-admin-angular-lite:build:production"
             },
             "development": {
-              "buildTarget": "Flexy-admin-angular-lite:build:development"
+              "browserTarget": "Flexy-admin-angular-lite:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Flexy-admin-angular-lite:build"
+            "browserTarget": "Flexy-admin-angular-lite:build"
           }
         },
         "test": {

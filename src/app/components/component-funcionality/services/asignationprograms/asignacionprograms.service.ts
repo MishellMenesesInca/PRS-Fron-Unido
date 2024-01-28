@@ -15,7 +15,7 @@ export class AsignacionprogramsService {
   asignationSelected: Transactional | undefined = undefined;
 
   constructor(private http: HttpClient) {}
-  
+
   listaactividaes(): Observable<any>{
     return this.http.get(this.urlactividad);
   }
@@ -23,7 +23,7 @@ export class AsignacionprogramsService {
   listaprogramas(): Observable<any>{
     return this.http.get(this.urlprograma);
   }
-  
+
   listarPorEstado(activo: string): Observable<Transactional[]> {
     const url = `${this.url2}/api/asignation/programs/${activo}`;
     return this.http.get<Transactional[]>(url);
@@ -33,7 +33,7 @@ export class AsignacionprogramsService {
     return this.http.post(`${this.url2}/api/asignation/programs`, datos).pipe(
       catchError((error) => {
         console.error("Error al registrar:", error);
-        return throwError(error); 
+        return throwError(error);
       })
     );
   }

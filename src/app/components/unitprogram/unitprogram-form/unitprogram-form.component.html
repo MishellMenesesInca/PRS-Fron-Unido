@@ -22,13 +22,13 @@
 
 
     <mat-form-field class="formForRegister formForRegister">
-        <mat-label>Unidades Operativas :</mat-label>
-        <mat-select formControlName="id_operativeunit" >
-          <mat-option *ngFor="let dFunc of funcionaryData" [value]="dFunc.id_operativeunit">
-            {{dFunc.name}} {{dFunc.director}} {{dFunc.address}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <mat-label>Unidades Operativas :</mat-label>
+      <mat-select formControlName="id_operativeunit" >
+        <mat-option *ngFor="let dFunc of funcionaryData" [value]="dFunc.id_operativeunit">
+          {{dFunc.name}} {{dFunc.director}} {{dFunc.address}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
 
     <mat-checkbox (change)="selectAllOrDeselectAll()">Seleccionar todo</mat-checkbox>

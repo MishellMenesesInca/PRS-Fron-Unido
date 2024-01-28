@@ -1,5 +1,5 @@
 export interface Activities {
-  id_activities: number;
+  id: number;
   name: string;
   description: string;
   date: string;

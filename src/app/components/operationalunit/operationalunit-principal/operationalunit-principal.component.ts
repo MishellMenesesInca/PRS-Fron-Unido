@@ -39,7 +39,7 @@ export class OperationalunitPrincipalComponent implements OnInit {
   dataSourceInactive = new MatTableDataSource(this.operationalunitDataInactive);
 
   constructor(public _operationalunitService: OperativeUnitService,
-        private _router: Router, private toastServices: HotToastService) {
+              private _router: Router, private toastServices: HotToastService) {
   }
 
   ngOnInit(): void {
@@ -150,29 +150,29 @@ export class OperationalunitPrincipalComponent implements OnInit {
     this.showDetails = true;
   }
 
-closeDetails() {
+  closeDetails() {
     this.selectedoperationalunit = null;
     this.showDetails = false;
-}
+  }
 
-showActive() {
+  showActive() {
     this.showDataActive = true;
     this.hideInactive();
     this.findAllDataCompleteOperationalUnit();
-}
+  }
 
-hideActive() {
+  hideActive() {
     this.showDataActive = false;
-}
+  }
 
-showInactive() {
+  showInactive() {
     this.showDataInactive = true;
     this.hideActive();
     this.findAllDataInactiveOperationalUnit();
-}
+  }
 
-hideInactive() {
+  hideInactive() {
     this.showDataInactive = false;
-}
+  }
 
 }

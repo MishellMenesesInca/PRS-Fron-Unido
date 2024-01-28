@@ -54,7 +54,7 @@ export class TransDistComponent implements OnInit{
 
   title = 'flexy-angular';
   constructor(private cdr: ChangeDetectorRef, private http: HttpClient, private service: SheetService) { }
-  
+
   ngOnInit(): void { }
   cambiarFiltro(): void {
     this.nuevaBusqueda();
@@ -167,7 +167,7 @@ export class TransDistComponent implements OnInit{
     }
   }
 
-  // Tipo De Riesgo 
+  // Tipo De Riesgo
   getColorForRiesgo(riesgo: string): string {
     switch (riesgo) {
       case 'BAJO':

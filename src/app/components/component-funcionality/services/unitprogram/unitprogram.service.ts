@@ -53,8 +53,8 @@ export class unitprogramervice {
   updateTwoWayAsignation(twoWayAsignation: transactionDataCompleteoperationalprogramResponse) {
     return this._http.put(
       this.urlAsignation +
-        '/' +
-        twoWayAsignation.transaccionalAllocation.id_funcionaryteend,
+      '/' +
+      twoWayAsignation.transaccionalAllocation.id_funcionaryteend,
       twoWayAsignation
     );
   }

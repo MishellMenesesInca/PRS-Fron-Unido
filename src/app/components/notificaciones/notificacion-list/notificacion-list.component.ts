@@ -39,23 +39,23 @@ export class NotificacionListComponent implements OnInit{
 
 
   listar() {
-  this.apiService.getData().subscribe(
-    (response: any) => {
-      this.data = response.map((item: any) => {
-        const fechaISO8601 = item.date_notification;
-        const fecha = new Date(fechaISO8601);
-        const fechaFormateada = fecha.toLocaleDateString('es-ES'); // Configuración regional para español
-        item.date_notification = fecha;
-        return item;
-      });
-      this.applyDateFilter();
-      this.applyEntityFilter();
-      this.applyFuncionarioFilter();
-    }
-  );
-}
+    this.apiService.getData().subscribe(
+      (response: any) => {
+        this.data = response.map((item: any) => {
+          const fechaISO8601 = item.date_notification;
+          const fecha = new Date(fechaISO8601);
+          const fechaFormateada = fecha.toLocaleDateString('es-ES'); // Configuración regional para español
+          item.date_notification = fecha;
+          return item;
+        });
+        this.applyDateFilter();
+        this.applyEntityFilter();
+        this.applyFuncionarioFilter();
+      }
+    );
+  }
 
-  
+
 
   applyDateFilter() {
     if (this.selectedDate && this.data) {
@@ -65,20 +65,20 @@ export class NotificacionListComponent implements OnInit{
       });
     }
   }
-  
+
   applyEntityFilter() {
     console.log('ID de Entidad Seleccionada:', this.selectedEntityFilter);
-  
+
     if (this.selectedEntityFilter !== null && this.data) {
       this.data = this.data.filter((item: any) => {
         console.log('ID de Entidad en el Elemento:', item.id_entities);
         return item.id_entity === this.selectedEntityFilter;
       });
-  
+
       console.log('Datos después del filtro:', this.data);
     }
   }
-  
+
   applyFuncionarioFilter() {
     if (this.selectedFuncionarioFilter !== null && this.data) {
       this.data = this.data.filter((item: any) => {
@@ -86,7 +86,7 @@ export class NotificacionListComponent implements OnInit{
       });
     }
   }
-  
+
 
 
   clearDateFilter() {
@@ -121,9 +121,9 @@ export class NotificacionListComponent implements OnInit{
   }
 
 
-  
+
   findAll() {
-    
+
 
   }
   openDialog(): void {
@@ -137,6 +137,8 @@ export class NotificacionListComponent implements OnInit{
       this.listar();
     });
   }
+
+
 
   generarPDF() {
     this.NotificacionesService.generarPDFFuncionary().subscribe((res) => {

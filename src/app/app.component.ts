@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { AuthConfig, NullValidationHandler, OAuthService } from 'angular-oauth2-oidc';
-import { MenssageService } from './components/component-funcionality/services/login/message.service';
+import { MenssageService } from './components/component-funcionality/services/login/menssage.service';
 import { LoginService } from './components/component-funcionality/services/login/login.service';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
+  title = 'soa';
+
   isAdmin!: boolean;
-  title = 'frontend';
 
   constructor(
     private oauthService: OAuthService,
@@ -38,11 +40,10 @@ export class AppComponent {
         if (this.oauthService.hasValidIdToken()) {
           this.isAdmin = this.loginService.getIsAdmin();
           const username = this.oauthService.getIdentityClaims()['preferred_username']
-          this.messageService.sendMessage(username, this.loginService.getIsLoggerd());
+          this.messageService.sendMessage(username, this.loginService.getIsLoggerd(), this.isAdmin);
         }
       });
 
   }
-
 
 }

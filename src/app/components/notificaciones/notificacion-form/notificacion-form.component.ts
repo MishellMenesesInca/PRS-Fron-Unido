@@ -17,7 +17,7 @@ interface FoodWithLink {
   styleUrls: ['./notificacion-form.component.scss']
 })
 export class NotificacionFormComponent {
-  
+
 
   actionsWithLinks: FoodWithLink[] = [
     { value: 'Informe de incumplimiento', viewValue: 'Informe de incumplimiento', link: 'https://docs.google.com/forms/d/e/1FAIpQLScP_1MpoNeWD8w6JBbce7YgEiZBzClZ_6pJeji7ppEEp6aYAw/viewform' },
@@ -38,7 +38,7 @@ export class NotificacionFormComponent {
 
   constructor(private apiService: NotificacionService, public dialogRef: MatDialogRef<NotificacionFormComponent>, private dialog: MatDialog,private sanitizer: DomSanitizer) { }
 
-  
+
   ngOnInit(): void {
     this.cargarEntidades();
     this.cargarFuncionario();
@@ -79,7 +79,7 @@ export class NotificacionFormComponent {
             popup: 'custom-toast' // Clase personalizada para estilos adicionales
           }
         });
-        
+
         this.onNoClick();
         this.dialogRef.close();
       },

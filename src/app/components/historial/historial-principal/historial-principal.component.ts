@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {HistorialService} from "src/app/services/historial/historial.service";
+import {HistorialService} from "../../component-funcionality/services/historial/historial.service";
 import {TeenService} from "../../component-funcionality/services/teen/teen.service";
 import {FuncionaryService} from "../../component-funcionality/services/funcionary/funcionary.service";
-import {ActivitiesService} from "src/app/services/activities/activities.service";
+import {ActivitiesService} from "../../component-funcionality/services/activities/activities.service";
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import {AttendanceService} from "../../component-funcionality/services/attendance/attendance.service";

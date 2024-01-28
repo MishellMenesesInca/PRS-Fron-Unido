@@ -66,7 +66,7 @@ export class BulkComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
-  
+
   constructor(
     private adolescenteService: AdolescenteService,
     private programaService: ProgramaService,
@@ -89,16 +89,16 @@ export class BulkComponent {
     const asignationTeen = new asignationTeenDto();
 
     asignationTeen.teens = this.listIdTeen,
-    asignationTeen.id_program = this.id_program,
-    asignationTeen.assignment_date = this.assignment_date,
+      asignationTeen.id_program = this.id_program,
+      asignationTeen.assignment_date = this.assignment_date,
 
-    this.transaccionService.saveAsignations(asignationTeen).subscribe(() => {
-      this.toastServices.success('Adolescente registrado exitosamente');
-      this.listIdTeen =[];
-      this.id_program = 0;
-      this.assignment_date = ''
-      this.selection.clear();
-    });
+      this.transaccionService.saveAsignations(asignationTeen).subscribe(() => {
+        this.toastServices.success('Adolescente registrado exitosamente');
+        this.listIdTeen =[];
+        this.id_program = 0;
+        this.assignment_date = ''
+        this.selection.clear();
+      });
   }
 
   loadAdolescents(): void {
@@ -144,13 +144,13 @@ export class BulkComponent {
       this.selection.clear() :
       this.adolescents.forEach((row: any) => {
         this.selection.select(row);
-        
+
         let Teen: TeenDto = {
           id_adolescent: row.id_adolescente
         };
         this.listIdTeen.push(Teen);
       })
-      console.log(this.listIdTeen)
+    console.log(this.listIdTeen)
   }
 
   isAllSelected() {
